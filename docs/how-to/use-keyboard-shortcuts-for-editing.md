@@ -1,7 +1,8 @@
 # Use Keyboard Shortcuts for Editing
 
 Here are some keyboard shortcuts you'll love when editing your notes.
->If you are not on mac or are using non-default shortcuts you can check the [[shortcut-list]] for each shortcut used in this note!
+
+> If you are not on mac or are using non-default shortcuts you can check the [[shortcut-list]] for each shortcut used in this note!
 
 This works best if you can see the result in the preview panel, run the `Markdown: Open Preview to the Side` command.
 
@@ -19,10 +20,10 @@ This works best if you can see the result in the preview panel, run the `Markdow
 
 - [ ] `alt+shift+f` formats a table. Place the cursor in the table below and format the table.
 
-| column 1 | column 2|
-|-|-|
-| one element | another element|
-| second row| last cell|
+| column 1    | column 2        |
+| ----------- | --------------- |
+| one element | another element |
+| second row  | last cell       |
 
 ---
 
