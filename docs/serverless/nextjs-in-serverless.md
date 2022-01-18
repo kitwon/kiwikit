@@ -26,4 +26,12 @@
 
 1. 根据`pageManifest`,`prerenderManifest`,`routesManifest`获取路由逻辑
   1. 判断是否需要渲染页面，需要的话在此步完成
-  2. 根据路由方法得到静态文件的获取路径
+  2. 根据路由方法得到静态文件的获取路径，[缓存生成](##缓存生成)在此步**同步**完成
+  3. 判断**lambda function**的权限
+
+## 缓存生成
+serverless-next采用是类似**cache-thought**的形式，每次请求对比缓存时间，超过设置时间重新生成缓存。代码在`@sls-next/core/src/defaultHandler.ts@staticRequest`中
+
+1. 从s3中请求资源，判断是否有缓存，有的话判断是否超时，对应执行`regeneration`，往**SQS**中发送消息并等待返回(使用deduplicateID防止重复生成)。
+2. 没有缓存判断是否`fallback route`，并且已经静态化，是的话返回html资源
+3. 以上都不是则往s3中写入缓存
