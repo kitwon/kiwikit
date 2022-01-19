@@ -1,0 +1,2 @@
+# How webpack plugin run
+
